@@ -13,18 +13,18 @@ export default function handler(req, res) {
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
   function getColor(diff) {
-    if (diff < 0) { return "#F0F8FF"; }
+    if (diff <0) { return "#F0F8FF"; }
     if (diff === 0) { return "yellow"; }
-    if (diff < 0) { return "#cbcbcb"; }
+    if (diff <0) { return "#cbcbcb"; }
     return "#000";
   }
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.status(200).send(
     [
-      `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink = "http://www.w3.org/1999/xlink" width = "143" height = "126" >`,
-      `<foreignObject x="0" y = "0" width = "143" height = "126" >`,
-      `<html xmlns="http://www.w3.org/1999/xhtml" >`,
+      `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink = "http://www.w3.org/1999/xlink" width = "143" height = "126">`,
+      `<foreignObject x="0" y = "0" width = "143" height = "126">`,
+      `<html xmlns="http://www.w3.org/1999/xhtml">`,
       `<style>`,
       `* {`,
       `background- color: ${getColor(diffDays)}`,
@@ -69,10 +69,10 @@ export default function handler(req, res) {
       `}`,
       `}`,
       `</style>`,
-      `< div >`,
-      `<p class="year" > ${year} </p>`,
-      `< p class="md" > ${month} - ${day} </p>`,
-      `< p class="count" > ${Math.abs(diffDays)} < span > 日 < /span></p >`,
+      `<div>`,
+      `<p class="year"> ${year} </p>`,
+      `<p class="md"> ${month} - ${day} </p>`,
+      `<p class="count"> ${Math.abs(diffDays)} <span> 日 </span></p>`,
       `</div>`,
       ``,
       `</html>`,
