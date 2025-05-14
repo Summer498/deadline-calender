@@ -1,5 +1,3 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-
 export default function handler(req, res) {
   const { year, month, day } = req.query;
 
