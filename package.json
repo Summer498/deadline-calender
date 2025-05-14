@@ -1,0 +1,16 @@
+{
+  "name": "deadline-calender",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Summer498/deadline-calender.git",
+  "author": "Summer498 <subore02@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo 0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.1.16",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  }
+}
