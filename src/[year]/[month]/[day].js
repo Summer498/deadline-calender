@@ -78,6 +78,6 @@ export default function handler(req, res) {
       `</html>`,
       `</foreignObject>`,
       `</svg>`,
-    ].join()
+    ].join("")
   );
 }

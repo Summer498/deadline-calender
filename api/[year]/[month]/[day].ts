@@ -80,6 +80,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       `</html>`,
       `</foreignObject>`,
       `</svg>`,
-    ].join()
+    ].join("")
   );
 }
