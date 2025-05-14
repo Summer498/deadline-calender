@@ -6,14 +6,12 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   // 与えられた日付 (月は0始まりなので-1)
   const targetDate = new Date(Number(year), Number(month) - 1, Number(day));
 
-  // 今日 (日本時間)
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
   const toDate = (t) => Math.floor(t / (1000 * 60 * 60 * 24))
 
-  // 差分（ミリ秒→日数へ変換）
-  const diffDays = toDate(targetDate.getTime()) - toDate(today.getTime());
+  const diffDays = toDate(targetDate.getTime() - today.getTime());
 
   function getColor(diff: number) {
     if (diff > 0) { return "#F0F8FF"; }
