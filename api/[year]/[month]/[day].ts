@@ -11,8 +11,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
   // 差分（ミリ秒→日数へ変換）
-  const diffTime = targetDate.getTime() - today.getTime();
-  const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+  const diffDays = targetDate.getDay() - today.getDay();
 
   function getColor(diff: number) {
     if (diff > 0) { return "#F0F8FF"; }
@@ -39,7 +38,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       `<div>`,
       `<p class="year">${year}</p>`,
       `<p class="md">${month}-${day}</p>`,
-      `<p class="count">${diffDays}<span>日</span></p>`,
+      `<p class="count">${Math.abs(diffDays)}<span>日</span></p>`,
       `</div>`,
       `</html>`,
       `</foreignObject>`,
