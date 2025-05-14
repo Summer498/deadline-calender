@@ -10,7 +10,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  const toDate = (t) => Math.round(t / (1000 * 60 * 60 * 24))
+  const toDate = (t) => Math.floor(t / (1000 * 60 * 60 * 24))
 
   // 差分（ミリ秒→日数へ変換）
   const diffDays = toDate(targetDate.getTime()) - toDate(today.getTime());
