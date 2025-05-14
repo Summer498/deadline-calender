@@ -15,9 +15,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
   function getColor(diff: number) {
-    if (diff <0) { return "#F0F8FF"; }
+    if (diff > 0) { return "#F0F8FF"; }
     if (diff === 0) { return "yellow"; }
-    if (diff <0) { return "#cbcbcb"; }
+    if (diff < 0) { return "#cbcbcb"; }
     return "#000";
   }
 
