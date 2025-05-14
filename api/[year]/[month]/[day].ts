@@ -11,7 +11,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   const toDate = (t) => Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()) / (1000 * 60 * 60 * 24);
 
-  const diffDays = toDate(targetDate.getTime()) - toDate(today.getTime());
+  const diffDays = toDate(targetDate) - toDate(today);
 
   function getColor(diff: number) {
     if (diff > 0) { return "#F0F8FF"; }
