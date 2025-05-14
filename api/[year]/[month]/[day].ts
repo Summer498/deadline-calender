@@ -24,7 +24,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Content-Type', 'image/svg+xml');
   res.status(200).send(
     [
-      `<svg xmlns="http://www.w3.org/2000/svg" xmlns: xlink = "http://www.w3.org/1999/xlink" width = "143" height = "126" >`,
+      `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink = "http://www.w3.org/1999/xlink" width = "143" height = "126" >`,
       `<foreignObject x="0" y = "0" width = "143" height = "126" >`,
       `<html xmlns="http://www.w3.org/1999/xhtml" >`,
       `<style>`,
