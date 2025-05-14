@@ -7,7 +7,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const targetDate = new Date(Number(year), Number(month) - 1, Number(day));
 
   const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (1000 * 60 * 60 * 9));
 
   const toDate = (t) => Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()) / (1000 * 60 * 60 * 24);
 
