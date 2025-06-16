@@ -1,20 +1,49 @@
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>締め切りカレンダ</title>
-    <meta name="description" content="締切を表示するカレンダーの api を紹介する">
-    <meta name="keywords" content="締め切り,日付計算,svg">
-    <meta name="author" content="Summer498">
-  </head>
-  <body>
-    <h1>締め切りカレンダー</h1>
-    <div>
-      API: <a href="./api/2025/05/15">https://deadline-calender.vercel.app/api/2025/05/15</a>
-    </div>
-    <div style="margin:10px"></div>
-    <div>
-      <img src="./api/2025/05/15.svg">
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>締め切りカレンダ</title>
+  <meta name="description" content="締切を表示するカレンダーの api を紹介する">
+  <meta name="keywords" content="締め切り,日付計算,svg">
+  <meta name="author" content="Summer498">
+</head>
+
+<body>
+  <h1>締め切りカレンダー</h1>
+  <div> API: <a href="./api/2025/05/15?ext=.svg">https://deadline-calender.vercel.app/api/2025/05/15?ext=.svg</a>
+  </div>
+  <div style="margin:10px"></div>
+  <div>
+    <img id="before-yesterday"></img>
+    <img id="yesterday"></img>
+    <img id="today"></img>
+    <img id="tomorrow"></img>
+    <img id="after-tomorrow"></img>
+    <script>
+      const now = new Date;
+      const before_yesterday = new Date;
+      before_yesterday.setMonth(now.getMonth() - 1);
+      const yesterday = new Date;
+      yesterday.setDate(now.getDate() - 1);
+      const tomorrow = new Date;
+      tomorrow.setDate(now.getDate() + 1);
+      const after_tomorrow = new Date;
+      after_tomorrow.setMonth(now.getMonth() + 1);
+
+      const before_yesterdayDiv = document.getElementById("before-yesterday")
+      before_yesterdayDiv.setAttribute("src", `./api/${before_yesterday.getFullYear()}/${before_yesterday.getMonth()+1}/${before_yesterday.getDate()}?ext=.svg`);
+      const yesterdayDiv = document.getElementById("yesterday")
+      yesterdayDiv.setAttribute("src", `./api/${yesterday.getFullYear()}/${yesterday.getMonth()+1}/${yesterday.getDate()}?ext=.svg`);
+      const todayDiv = document.getElementById("today")
+      todayDiv.setAttribute("src", `./api/${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()}?ext=.svg`);
+      const tomorrowDiv = document.getElementById("tomorrow")
+      tomorrowDiv.setAttribute("src", `./api/${tomorrow.getFullYear()}/${tomorrow.getMonth()+1}/${tomorrow.getDate()}?ext=.svg`);
+      const after_tomorrowDiv = document.getElementById("after-tomorrow")
+      after_tomorrowDiv.setAttribute("src", `./api/${after_tomorrow.getFullYear()}/${after_tomorrow.getMonth()+1}/${after_tomorrow.getDate()}?ext=.svg`);
+
+    </script>
+  </div>
+</body>
+
 </html>
