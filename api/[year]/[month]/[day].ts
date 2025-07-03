@@ -36,7 +36,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return ret.split("").reverse().join("");
   }
 
-  const fixed = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() - 9))
+  const fixed = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 9))
   const crypto = `${getCrypto(fixed.getFullYear())} ${getCrypto(fixed.getMonth()+1)} ${getCrypto(fixed.getDate())} ${getCrypto(fixed.getHours())} ${getCrypto(fixed.getMinutes())}`;
 
   res.setHeader('Content-Type', 'image/svg+xml');
