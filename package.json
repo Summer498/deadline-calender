@@ -6,7 +6,8 @@
   "author": "Summer498 <subore02@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "echo 0"
+    "build": "echo 0",
+    "start": "vercel dev"
   },
   "devDependencies": {
     "@vercel/node": "^5.1.16",
