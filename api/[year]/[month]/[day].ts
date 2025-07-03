@@ -7,7 +7,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   // 与えられた日付 (月は0始まりなので-1)
   const target = Date.UTC(Number(year), Number(month) - 1, Number(day))
-  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours())
+  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 9)
 
   const toDate = (ms: number) => Math.floor(ms / (1000 * 60 * 60 * 24));
   const diffDays = toDate(target) - toDate(today);
@@ -36,7 +36,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return ret.split("").reverse().join("");
   }
 
-  const crypto = `${getCrypto(now.getFullYear())} ${getCrypto(now.getMonth())} ${getCrypto(now.getDate())} ${getCrypto(now.getHours())} ${getCrypto(now.getMinutes())}`;
+  const fixed = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()))
+  const crypto = `${getCrypto(fixed.getFullYear())} ${getCrypto(fixed.getMonth()+1)} ${getCrypto(fixed.getDate())} ${getCrypto(fixed.getHours())} ${getCrypto(fixed.getMinutes())}`;
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.status(200).send(
