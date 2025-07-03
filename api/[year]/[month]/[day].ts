@@ -52,7 +52,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       `.md {font-size: 32px;text-align: center;margin: 0;letter-spacing: 2px;line-height: 13px;}`,
       `span {font-size: 10px;}`,
       `.count {font-size: 51px;text-align: center;letter-spacing: -4px;margin: 0;}`,
-      `.crypto {font-size: 10px;text-align: center;margin: 0;}`,
+      `.crypto {font-size: 10px;text-align: center;margin: 0;transform: translateY(-1em);}`,
       //      `@media (prefers-color-scheme: dark) {p,* {color: white}}`,
       `</style>`,
       `<div>`,
