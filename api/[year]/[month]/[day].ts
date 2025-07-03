@@ -26,6 +26,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return "#000";
   }
 
+  const base_crypto = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟⰀⰁⰂⰃⰄⰅⰆⰇⰈⰉⰊⰋⰌⰍⰎⰏⰐⰑⰒⰓⰔⰕⰖⰗⴰⴱⴲⴳⴴⴵⴶⴷⴸⴹⴺⴻⴼⴽⴾⴿⵀⵁⵂⵃⵄⵅⵆⵇαβγδεζηθικλμνξοπρστυφχψω"
+  function getCrypto(n: number) {
+    let ret = "";
+    while (n) {
+      ret += base_crypto[n % 10];
+      n = Math.floor(n / 10);
+    }
+    return ret.split("").reverse().join("");
+  }
+
+  const crypto = `${getCrypto(now.getFullYear())} ${getCrypto(now.getMonth())} ${getCrypto(now.getDate())} ${getCrypto(now.getHours())} ${getCrypto(now.getMinutes())}`;
+
   res.setHeader('Content-Type', 'image/svg+xml');
   res.status(200).send(
     [
@@ -39,12 +51,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       `.md {font-size: 32px;text-align: center;margin: 0;letter-spacing: 2px;line-height: 13px;}`,
       `span {font-size: 10px;}`,
       `.count {font-size: 51px;text-align: center;letter-spacing: -4px;margin: 0;}`,
+      `.crypto {font-size: 10px;text-align: center;margin: 0;}`,
       //      `@media (prefers-color-scheme: dark) {p,* {color: white}}`,
       `</style>`,
       `<div>`,
       `<p class="year">${year}</p>`,
       `<p class="md">${month}-${day}</p>`,
       `<p class="count">${Math.abs(diffDays)}<span>${diffDays < 0 ? "日前" : diffDays > 0 ? "日後" : "日"}</span></p>`,
+      `<p class="crypto">${crypto}</p>`,
       `</div>`,
       `</html>`,
       `</foreignObject>`,
